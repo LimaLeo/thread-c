@@ -1,0 +1,40 @@
+1)(2,0 pontos) Compilar e executar os programas somaVet01.c e somaVet02.c e responder os
+itens abaixo:
+a) Para que servem esses programas (somaVet01.c e somaVet02.c)? Explicar a resposta.
+Os dois programas declaram tres vetores com o tamanho de 10000.
+Preenchem os dois primeiros com o valor 1 e valor 2 respectivamente.
+Somam os dois vetores e armazenam no terceiro vetor. 
+A primeira realiza a soma atravez de uma unica funcao.
+Ja a segunda utiliza duas funcoes, uma que varre metade e a outra que varre a outra metade e realizam a soma.
+A soma e realizada de forma nao paralela na primeira soma.
+Ja a segunda e realizada de forma paralela.
+E por fim as duas imprimem na tela o resultado.
+
+b) É verdade que ambos programas são paralelos? Justificar a resposta.
+Nao. Apenas o segundo programa foi construido para executar de forma paralela.
+
+c) Qual é o programa é mais adequado em ambiente multi-core? Justificar a resposta.
+O segundo programa (somaVet02.c), pois foi construido para execucao paralela.
+
+d) O que pode ocorrer se as instruções pthread_join forem removidas em somaVet02.c ?
+O processamento das threads vai se perder, pois o pthread_join suspende o processamento da thread que
+a chamou até que as threads identificadas na função terminem.
+
+2)(1,0 pontos) Desenvolver um programa sequencial (não paralelo) que some duas matrizes
+de ordem 10000x10000 e, ao final, mostre o resultado da matriz soma na tela.
+C = A + B, onde A, B e C são matrizes de ordem 10000x10000.
+
+3)Desenvolver o código e responder aos itens abaixo:
+a)(4,0 pontos) Baseado nos programas anteriores (somaVet01.c e somaVet02.c) desenvolver
+um programa paralelo que some duas matrizes de ordem 10000x10000. Esse programa deverá
+executar quatro threads paralelas de forma a obter um melhor desempenho. Cada thread
+paralela irá realizar uma parte da soma matricial. Ao final, mostrar os valores da matriz soma
+na tela.
+
+b)(1,0 ponto) Além de entregar o código do programa do item (a), descrever (com suas palavras)
+a ideia básica que foi adotada na sua solução.
+Cada thread foi responsavel por 1/4 da soma dos vetores. Dividimos e multiplicamos pela quantidade da fatia correspondente.
+
+4) (2,0 pontos) (Desafio) Fazer uma solução paralela para realizar a soma dos elementos
+contidos em um vetor que está preenchido com os seguintes valores a seguir:
+8, 19, 7, 15, 7, 13, 12, 14.
